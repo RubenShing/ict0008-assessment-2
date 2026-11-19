@@ -21,6 +21,22 @@ def main():
     for book in library.books:
         print(f"{book.isbn} - {book.title}")
 
+    while True:
+        isbn = input("\nEnter book ISBN (0 = Exit): ").strip()
+
+        if isbn == "0":
+            print("Goodbye!")
+            break
+
+        book = library.findBookByISBN(isbn)
+
+        if book is None:
+            print("Book not found.")
+        elif book.borrowBook():
+            print("Loan confirmed.")
+            book.displayBookDetails()
+        else:
+            print("Book unavailable.")
 
 if __name__ == "__main__":
     main()
