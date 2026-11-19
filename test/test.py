@@ -3,6 +3,8 @@ from datetime import date
 
 from src.book import Book
 
+from src.library import Library
+
 
 class BookTests(unittest.TestCase):
     def test_book_stores_its_details(self):
@@ -53,6 +55,18 @@ class BookTests(unittest.TestCase):
         Book.sortBookData(books)
 
         self.assertEqual(books, [lower_isbn, higher_isbn])
+
+class LibraryTests(unittest.TestCase):
+    def test_find_book_by_isbn(self):
+        library = Library()
+        added_on = date(2026, 11, 19)
+        first = Book("First Book", "Author A", "9780000000001", True, added_on)
+        second = Book("Second Book", "Author B", "9780000000002", True, added_on)
+        library.addBook(first)
+        library.addBook(second)
+
+        self.assertIs(library.findBookByISBN(second.isbn), second)
+        self.assertIsNone(library.findBookByISBN("9780000009999"))
 
 if __name__ == "__main__":
     unittest.main()
