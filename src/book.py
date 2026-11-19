@@ -8,3 +8,10 @@ class Book:
         self.isbn = isbn
         self.available = available
         self.date_added = date_added
+
+    def borrowBook(self):
+        if not self.available:
+            return False
+
+        self.available = False
+        return True

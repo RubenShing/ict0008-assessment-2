@@ -27,6 +27,13 @@ class BookTests(unittest.TestCase):
         self.assertFalse(book.available)
         self.assertEqual(book.date_added, added_on)
 
+    def test_book_cannot_be_borrowed_twice(self):
+        book = Book("The Hobbit", "J.R.R. Tolkien", "9780547928227",
+                    True, date(2026, 11, 19))
+
+        self.assertTrue(book.borrowBook())
+        self.assertFalse(book.available)
+        self.assertFalse(book.borrowBook())
 
 if __name__ == "__main__":
     unittest.main()
