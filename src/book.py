@@ -15,3 +15,6 @@ class Book:
 
         self.available = False
         return True
+
+    def returnBook(self):
+        self.available = True
