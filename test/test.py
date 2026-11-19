@@ -44,6 +44,15 @@ class BookTests(unittest.TestCase):
         self.assertTrue(book.available)
         self.assertTrue(book.borrowBook())
 
+    def test_sort_book_data_orders_books_by_isbn(self):
+        added_on = date(2026, 11, 19)
+        higher_isbn = Book("A Book", "Author A", "9780000000002", True, added_on)
+        lower_isbn = Book("Z Book", "Author Z", "9780000000001", True, added_on)
+        books = [higher_isbn, lower_isbn]
+
+        Book.sortBookData(books)
+
+        self.assertEqual(books, [lower_isbn, higher_isbn])
 
 if __name__ == "__main__":
     unittest.main()

@@ -29,3 +29,7 @@ class Book:
         print(f"Author: {self.author}")
         print(f"ISBN: {self.isbn}")
         print(f"Availability: {status}")
+
+    @staticmethod
+    def sortBookData(books):
+        books.sort(key=lambda book: book.isbn)
