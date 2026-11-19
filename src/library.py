@@ -1,3 +1,5 @@
+from src.book import Book
+
 class Library:
     def __init__(self):
         self.books = []
@@ -11,3 +13,6 @@ class Library:
                 return book
 
         return None
+
+    def sortBooks(self):
+        Book.sortBookData(self.books)
