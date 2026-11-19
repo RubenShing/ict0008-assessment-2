@@ -18,3 +18,14 @@ class Book:
 
     def returnBook(self):
         self.available = True
+
+    def displayBookDetails(self):
+        if self.available:
+            status = "Available"
+        else:
+            status = "Borrowed"
+
+        print(f"Title: {self.title}")
+        print(f"Author: {self.author}")
+        print(f"ISBN: {self.isbn}")
+        print(f"Availability: {status}")

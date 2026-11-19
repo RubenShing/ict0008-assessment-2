@@ -44,5 +44,6 @@ class BookTests(unittest.TestCase):
         self.assertTrue(book.available)
         self.assertTrue(book.borrowBook())
 
+
 if __name__ == "__main__":
     unittest.main()
