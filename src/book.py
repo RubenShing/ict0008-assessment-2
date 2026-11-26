@@ -33,3 +33,29 @@ class Book:
     @staticmethod
     def sortBookData(books):
         books.sort(key=lambda book: book.isbn)
+
+
+class HardcopyBook(Book):
+    book_format = "Hardcopy"
+
+    def __init__(self, title, author, isbn, available, date_added, shelf_number):
+        super().__init__(title, author, isbn, available, date_added)
+        self.shelf_number = shelf_number
+
+    def displayBookDetails(self):
+        super().displayBookDetails()
+        print(f"Format: {self.book_format}")
+        print(f"Shelf number: {self.shelf_number}")
+
+
+class EBook(Book):
+    book_format = "E-book"
+
+    def __init__(self, title, author, isbn, available, date_added, license_end_date):
+        super().__init__(title, author, isbn, available, date_added)
+        self.license_end_date = license_end_date
+
+    def displayBookDetails(self):
+        super().displayBookDetails()
+        print(f"Format: {self.book_format}")
+        print(f"Licence end date: {self.license_end_date.isoformat()}")
